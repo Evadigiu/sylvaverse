@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sylvaverse | Votre forêt, partout avec vous</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fir:#1F3B2D; --moss:#5E7F3A; --mist:#E6ECE5; --paper:#F7F9F6; --gold:#B8913A; --ink:#17201B; --soft:#55635A; --line:#C9D3C8; --ribbon:#C0392B;
+  --bg:var(--paper); --surface:#FFFFFF; --text:var(--ink); --muted:var(--soft); --brand:var(--fir);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#111814; --surface:#18221C; --text:#E8EEE7; --muted:#A3B1A6; --brand:#9CC27A; --line:#2E3D33; --mist:#1D2A22; }
+}
+:root[data-theme="dark"]{ --bg:#111814; --surface:#18221C; --text:#E8EEE7; --muted:#A3B1A6; --brand:#9CC27A; --line:#2E3D33; --mist:#1D2A22; }
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+img,svg{max-width:100%;display:block}
+a{color:var(--brand)}
+h1,h2,h3{font-family:"Gloock",Georgia,"Times New Roman",serif;font-weight:400;line-height:1.1;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Gloock",Georgia,serif;font-size:24px;color:var(--brand);text-decoration:none}
+nav{display:flex;gap:4px;overflow-x:auto}
+nav a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:500;font-size:15px;white-space:nowrap}
+nav a[aria-current="page"]{background:var(--mist);color:var(--text)}
+nav a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.page{display:none}
+.page.on{display:block}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:64px 0 56px}
+.hero h1{font-size:clamp(40px,6vw,68px);color:var(--brand)}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:30em;margin:22px 0 28px}
+.lens{position:relative;border-radius:46% 46% 42% 42% / 52% 52% 40% 40%;overflow:hidden;aspect-ratio:1.35;box-shadow:0 0 0 10px var(--surface),0 0 0 11px var(--line)}
+.lens svg{width:100%;height:100%}
+.lens-tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:rgba(23,32,27,.72);color:#fff;font-size:13px;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.figures{display:flex;gap:36px;flex-wrap:wrap;margin-top:8px}
+.fig strong{display:block;font-family:"Gloock",Georgia,serif;font-size:44px;font-weight:400;color:var(--gold);line-height:1}
+.fig span{font-size:14px;color:var(--muted)}
+.cta{display:inline-block;margin-top:30px;background:var(--fir);color:#fff;border:0;border-radius:999px;padding:14px 26px;font:600 16px "Instrument Sans",system-ui,sans-serif;cursor:pointer}
+:root[data-theme="dark"] .cta{background:var(--moss)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{background:var(--moss)}}
+.label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);border-radius:6px;padding:4px 10px;font-size:13px;font-weight:600;margin-bottom:22px}
+
+section.band{padding:64px 0;border-top:1px solid var(--line)}
+section.band h2{font-size:clamp(30px,4vw,42px);margin-bottom:28px;max-width:20em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:s}
+.steps div{counter-increment:s}
+.steps div::before{content:counter(s);display:block;font-family:"Gloock",Georgia,serif;font-size:34px;color:var(--moss);margin-bottom:6px}
+.steps h3{font-family:"Instrument Sans",system-ui,sans-serif;font-weight:600;font-size:18px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted)}
+.quote{background:var(--mist);border-radius:18px;padding:36px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+.quote blockquote{margin:0;font-family:"Gloock",Georgia,serif;font-size:24px;line-height:1.35}
+.quote cite{display:block;margin-top:14px;font:500 15px "Instrument Sans",system-ui,sans-serif;color:var(--muted);font-style:normal}
+.mark{font-family:"Gloock",Georgia,serif;font-size:80px;line-height:.7;color:var(--gold)}
+.small{font-size:13px;color:var(--muted)}
+
+/* Forest page */
+.intro{padding:56px 0 28px;max-width:40em}
+.intro h1{font-size:clamp(36px,5vw,54px);color:var(--brand);margin-bottom:16px}
+.intro p{color:var(--muted);margin:0}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:64px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.cert .view{aspect-ratio:1.35;position:relative}
+.cert .view svg{width:100%;height:100%}
+.cert .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.cert h3{font-size:22px}
+.cert dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
+.cert dt{color:var(--muted)}
+.cert dd{margin:0;font-weight:500}
+.sign{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:14px}
+.sign .hand{font-family:"Gloock",Georgia,serif;font-size:20px;color:var(--brand);display:block;transform:rotate(-3deg);margin-bottom:2px}
+
+/* Team page */
+.team-photo{margin:0 0 40px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.team-photo figcaption{padding:14px 20px;font-family:"Gloock",Georgia,serif;font-size:20px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-bottom:40px}
+.person h3{font-family:"Instrument Sans",system-ui,sans-serif;font-weight:600;font-size:18px}
+.person p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.partners{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:64px}
+.partner{border:1px solid var(--line);border-radius:14px;padding:22px}
+.partner h3{font-size:22px;margin-bottom:6px}
+.partner p{margin:0;color:var(--muted);font-size:15px}
+
+.legal{padding:56px 0 64px;max-width:44em}
+.legal h1{font-size:40px;color:var(--brand);margin-bottom:24px}
+.legal h2{font-family:"Instrument Sans",system-ui,sans-serif;font-weight:600;font-size:17px;margin:24px 0 4px}
+.legal p{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:28px 0 36px;font-size:14px;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
+footer p{margin:0}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;background:var(--ink);color:#fff;padding:14px 20px;border-radius:12px;font-size:15px;max-width:min(92vw,460px);transition:opacity .25s,transform .25s;pointer-events:none;z-index:20}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:36px}
+  .steps,.certs,.people{grid-template-columns:1fr}
+  .partners{grid-template-columns:1fr}
+  .quote{grid-template-columns:1fr;padding:26px}
+  .bar{height:auto;padding:12px 0;flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#accueil" data-go="accueil">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2 L22 15 H17 L23 23 H3 L9 15 H4 Z" fill="currentColor"/></svg>
+      Sylvaverse
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#accueil" data-go="accueil">Accueil</a>
+      <a href="#foret" data-go="foret">Votre forêt</a>
+      <a href="#equipe" data-go="equipe">Notre équipe</a>
+      <a href="#mentions" data-go="mentions">Mentions légales</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ACCUEIL -->
+<div class="page" id="p-accueil">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="label">Label Investissement Vert</span>
+        <h1>Possédez une forêt. Visitez-la où que vous soyez.</h1>
+        <p class="lead">Sylvaverse replante des parcelles dans les Vosges et vous en confie la propriété. Grâce à la réalité virtuelle, vous marchez dans votre forêt sans quitter la ville, et vous la regardez grandir année après année.</p>
+        <div class="figures">
+          <div class="fig"><strong>14 %</strong><span>de rendement annuel</span></div>
+          <div class="fig"><strong>100 %</strong><span>de capital garanti</span></div>
+          <div class="fig"><strong>470</strong><span>propriétaires nous font confiance</span></div>
+        </div>
+        <button class="cta" type="button" data-reserve>Réserver ma parcelle</button>
+      </div>
+      <div class="lens" data-forest="hero"><span class="lens-tag">Aperçu de la visite immersive</span></div>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Devenir propriétaire en trois étapes</h2>
+      <div class="steps">
+        <div><h3>Choisissez votre parcelle</h3><p>À partir de 5 000 €, devenez propriétaire d'une parcelle de groupement forestier dans le massif vosgien.</p></div>
+        <div><h3>Recevez votre certificat</h3><p>Chaque parcelle est expertisée et certifiée par notre expert forestier, puis modélisée en 3D à l'identique.</p></div>
+        <div><h3>Visitez et encaissez</h3><p>Explorez votre forêt en réalité virtuelle chez notre partenaire Immersia, et percevez vos revenus chaque trimestre.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="quote">
+        <div class="mark" aria-hidden="true">“</div>
+        <div>
+          <blockquote>Quand j'ai mis le casque, j'ai vu mes épicéas. Pour la première fois, mon épargne avait un visage.</blockquote>
+          <cite>Germaine S., propriétaire depuis 2025</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- VOTRE FORÊT -->
+<div class="page" id="p-foret">
+  <div class="wrap">
+    <div class="intro">
+      <h1>Votre forêt</h1>
+      <p>Chaque propriétaire reçoit un certificat nominatif et une vue immersive de sa parcelle, mise à jour à chaque saison. Voici trois certificats récemment délivrés.</p>
+    </div>
+    <div class="certs">
+      <article class="cert">
+        <div class="view" data-forest="c1"></div>
+        <div class="body">
+          <h3>Certificat n° SV-0412</h3>
+          <dl>
+            <dt>Propriétaire</dt><dd>Germaine Schmitt</dd>
+            <dt>Parcelle</dt><dd>Massif du Donon</dd>
+            <dt>Surface</dt><dd>0,8 hectare</dd>
+            <dt>Plantation</dt><dd>1 100 épicéas, mars 2025</dd>
+          </dl>
+          <div class="sign"><span class="hand">H. Lambert</span>H. Lambert, expert forestier</div>
+        </div>
+      </article>
+      <article class="cert">
+        <div class="view" data-forest="c2"></div>
+        <div class="body">
+          <h3>Certificat n° SV-0877</h3>
+          <dl>
+            <dt>Propriétaire</dt><dd>Paul et Odile Wetzel</dd>
+            <dt>Parcelle</dt><dd>Ballon d'Alsace, versant sud</dd>
+            <dt>Surface</dt><dd>1,5 hectare</dd>
+            <dt>Plantation</dt><dd>2 000 sapins pectinés, octobre 2025</dd>
+          </dl>
+          <div class="sign"><span class="hand">H. Lambert</span>H. Lambert, expert forestier</div>
+        </div>
+      </article>
+      <article class="cert">
+        <div class="view" data-forest="c3"></div>
+        <div class="body">
+          <h3>Certificat n° SV-1203</h3>
+          <dl>
+            <dt>Propriétaire</dt><dd>Famille Hartmeyer</dd>
+            <dt>Parcelle</dt><dd>Col de la Schlucht</dd>
+            <dt>Surface</dt><dd>2,1 hectares</dd>
+            <dt>Plantation</dt><dd>2 800 hêtres et épicéas, avril 2026</dd>
+          </dl>
+          <div class="sign"><span class="hand">H. Lambert</span>H. Lambert, expert forestier</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- NOTRE ÉQUIPE -->
+<div class="page" id="p-equipe">
+  <div class="wrap">
+    <div class="intro">
+      <h1>Notre équipe</h1>
+      <p>Des passionnés de forêt, de finance et de technologie, réunis par une même conviction : l'épargne peut faire pousser des arbres.</p>
+    </div>
+    <figure class="team-photo">
+      <svg viewBox="0 0 800 420" role="img" aria-label="Deux hommes trinquent sur une terrasse en bois, une forêt en arrière-plan">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C98B"/><stop offset="1" stop-color="#E9A86A"/></linearGradient>
+        </defs>
+        <rect width="800" height="420" fill="url(#sky)"/>
+        <path d="M0 250 L60 190 L110 230 L170 160 L230 220 L300 170 L360 225 L430 150 L500 215 L570 165 L640 220 L700 175 L800 230 V420 H0 Z" fill="#3E5A3A"/>
+        <path d="M0 290 L80 240 L150 280 L240 230 L320 285 L420 235 L520 290 L610 240 L700 285 L800 250 V420 H0 Z" fill="#2B4430"/>
+        <rect y="330" width="800" height="90" fill="#8A6A48"/>
+        <g stroke="#6E5236" stroke-width="3"><line x1="0" y1="352" x2="800" y2="352"/><line x1="0" y1="378" x2="800" y2="378"/><line x1="0" y1="402" x2="800" y2="402"/></g>
+        <!-- personne gauche -->
+        <circle cx="300" cy="150" r="34" fill="#E2B892"/>
+        <path d="M268 140 Q300 100 332 140 Q320 118 300 118 Q280 118 268 140Z" fill="#4A3426"/>
+        <path d="M240 330 Q244 220 300 200 Q356 220 360 330 Z" fill="#2F4E6E"/>
+        <path d="M350 235 L392 196" stroke="#2F4E6E" stroke-width="22" stroke-linecap="round"/>
+        <!-- personne droite -->
+        <circle cx="500" cy="146" r="34" fill="#D9A47E"/>
+        <path d="M466 140 Q470 104 500 108 Q532 104 534 140 Q528 124 500 122 Q474 124 466 140Z" fill="#8C8C8C"/>
+        <path d="M440 330 Q444 216 500 196 Q556 216 560 330 Z" fill="#5E7F3A"/>
+        <path d="M450 232 L410 196" stroke="#5E7F3A" stroke-width="22" stroke-linecap="round"/>
+        <!-- verres -->
+        <path d="M384 160 L404 160 L398 196 L390 196 Z" fill="#F7E7B5" stroke="#fff" stroke-width="2"/>
+        <path d="M398 162 L418 162 L412 198 L404 198 Z" fill="#F7E7B5" stroke="#fff" stroke-width="2"/>
+        <g stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="401" y1="140" x2="401" y2="128"/><line x1="388" y1="146" x2="380" y2="138"/><line x1="414" y1="146" x2="422" y2="138"/></g>
+      </svg>
+      <figcaption>Les fondateurs de l'aventure</figcaption>
+    </figure>
+    <div class="people">
+      <div class="person"><h3>Julien Marchal</h3><p>Fondateur et président. Quinze ans dans la gestion d'actifs avant de choisir les arbres.</p></div>
+      <div class="person"><h3>Hugo Lambert</h3><p>Expert forestier. Il arpente, expertise et certifie chacune de nos parcelles.</p></div>
+      <div class="person"><h3>Claire Vautrin</h3><p>Directrice financière. Elle veille à la solidité de chaque euro investi.</p></div>
+    </div>
+    <h2 style="font-size:30px;margin-bottom:20px">Nos partenaires</h2>
+    <div class="partners">
+      <div class="partner"><h3>Immersia</h3><p>Arène de réalité virtuelle partenaire. Elle héberge nos forêts numériques et accueille les visites de nos propriétaires.</p></div>
+      <div class="partner"><h3>Cabinet Kessler Patrimoine</h3><p>Conseil en gestion de patrimoine. Il accompagne nos propriétaires dans leur projet d'investissement responsable.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- MENTIONS -->
+<div class="page" id="p-mentions">
+  <div class="wrap legal">
+    <h1>Mentions légales</h1>
+    <h2>Éditeur du site</h2>
+    <p>Sylvaverse SAS, au capital de 10 000 €. RCS Strasbourg 912 000 000 (numéro fictif). Siège social : 8 allée des Sapins, 67000 Strasbourg.</p>
+    <h2>Directeur de la publication</h2>
+    <p>Julien Marchal, président.</p>
+    <h2>Hébergement</h2>
+    <p>Immersia, arène de réalité virtuelle.</p>
+    <h2>Conception des modèles 3D</h2>
+    <p>HL Studio.</p>
+    <h2>Avertissement</h2>
+    <p>Les performances passées ne préjugent pas des performances futures.</p>
+    <h2>Site fictif</h2>
+    <p>Ce site a été créé pour un jeu d'enquête. Sylvaverse, ses dirigeants, ses partenaires et ses clients sont imaginaires. Toute ressemblance avec des personnes ou des sociétés existantes serait fortuite.</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <p>© 2026 Sylvaverse SAS</p>
+    <p>Modèles 3D © HL Studio</p>
+    <p>Visites immersives en partenariat avec Immersia</p>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite" id="toast"></div>
+
+<script>
+(function(){
+  // Une seule forêt, dessinée à l'identique partout : c'est l'indice.
+  var trees = [
+    [40,250,70],[95,240,88],[150,255,64],[200,232,96],[262,248,72],[318,236,92],[372,252,66],[425,238,90],[482,250,70],[536,234,98],[596,248,74],[650,240,86],[704,252,68],[756,238,90],
+    [20,300,92],[86,292,104],[160,306,86],[232,288,112],[310,300,94],[388,286,116],[468,302,90],[548,290,108],[626,304,92],[700,292,106],[772,302,94]
+  ];
+  function forest(id){
+    var g = '';
+    trees.forEach(function(t, i){
+      var x=t[0], y=t[1], h=t[2], w=h*0.42, c = i < 14 ? '#3F6440' : '#2C4A31';
+      g += '<rect x="'+(x-4)+'" y="'+(y-4)+'" width="8" height="18" fill="#5B4130"/>';
+      g += '<path d="M'+x+' '+(y-h)+' L'+(x+w)+' '+y+' L'+(x-w)+' '+y+' Z" fill="'+c+'"/>';
+      g += '<path d="M'+x+' '+(y-h)+' L'+(x+w*0.6)+' '+(y-h*0.45)+' L'+(x-w*0.6)+' '+(y-h*0.45)+' Z" fill="'+c+'" opacity=".85"/>';
+    });
+    // ruban rouge sur le même arbre, au même endroit, sur toutes les vues
+    var r = '<path d="M420 241 L430 241 L430 247 L420 247 Z" fill="#C0392B"/><path d="M430 243 L440 251 L435 254 L429 247 Z" fill="#C0392B"/>';
+    return '<svg viewBox="0 0 800 590" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Vue immersive d\'une parcelle de forêt">'+
+      '<defs><linearGradient id="s'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE0D8"/><stop offset="1" stop-color="#EEF2E6"/></linearGradient></defs>'+
+      '<rect width="800" height="590" fill="url(#s'+id+')"/>'+
+      '<path d="M0 210 L120 130 L230 190 L360 100 L480 180 L600 120 L720 170 L800 140 V590 H0 Z" fill="#9DB3A2"/>'+
+      '<path d="M0 260 L140 200 L280 245 L420 190 L560 240 L700 200 L800 230 V590 H0 Z" fill="#7F9A84"/>'+
+      '<rect y="290" width="800" height="300" fill="#4E6B3F"/>'+
+      g + r +
+      '<path d="M330 590 Q390 420 400 310 Q410 420 470 590 Z" fill="#8C7556" opacity=".7"/>'+
+      '<rect y="180" width="800" height="50" fill="#fff" opacity=".18"/>'+
+    '</svg>';
+  }
+  document.querySelectorAll('[data-forest]').forEach(function(el){
+    el.insertAdjacentHTML('afterbegin', forest(el.getAttribute('data-forest')));
+  });
+
+  // Navigation par onglets
+  var pages = ['accueil','foret','equipe','mentions'];
+  function show(name){
+    if (pages.indexOf(name) < 0) name = 'accueil';
+    pages.forEach(function(p){ document.getElementById('p-'+p).classList.toggle('on', p === name); });
+    document.querySelectorAll('nav a').forEach(function(a){
+      if (a.getAttribute('data-go') === name) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+  show(location.hash.slice(1));
+
+  // Bouton de réservation : les souscriptions sont suspendues
+  var toast = document.getElementById('toast'), timer;
+  document.querySelectorAll('[data-reserve]').forEach(function(b){
+    b.addEventListener('click', function(){
+      toast.textContent = 'Les souscriptions sont temporairement suspendues. Notre équipe revient vers vous très vite.';
+      toast.classList.add('show');
+      clearTimeout(timer);
+      timer = setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+    });
+  });
+})();
+</script>
+</body>
+</html>
